@@ -2,7 +2,9 @@
 // Define generate passwaord
 //Prompt user on capitalization, length (8-128), numbers, special characters
 
-var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z'];
+var alphabetL = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z'];
+
+var alphabetU = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 var specCharacters = [".","\\", ":", ";", "!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", "/", "<", ">", "=", "?", "@", "^", "_", "~",];
 
@@ -12,19 +14,27 @@ var specCharacters = [".","\\", ":", ";", "!", "#", "$", "%", "&", "(", ")", "*"
 
 
 
-function getRandomAlpha() {
-  return Math.floor(Math.random() * alphabet.length);
+function getRandomAlphaU() {
+  return Math.floor(Math.random() * alphabetU.length);
+}
+function getRandomAlphaL() {
+  return Math.floor(Math.random() * alphabetL.length);
 }
 
 function getRandomSpec() {
   return Math.floor(Math.random() * specCharacters.length);
 }
 
+function prompts() {
+
+}
 
 function generatePassword( ) {
-  var passUpperCase = alphabet.toUpperCase[getRandomAlpha()]
-  var passLowerCase = alphabet[getRandomAlpha()]
-  var passLength =  window.prompt('How many characters would you like your password to contain?')
+  
+  var passUpperCase = alphabetU[getRandomAlphaU()]
+  var passLowerCase = alphabetL[getRandomAlphaL()]
+  var passLength =  parseInt(window.prompt('How many characters would you like your password to contain?'))
+  console.log('the password will contain ' + passLength +  ' characters')
   var passSpecial = specCharacters[getRandomSpec()]
   var passNumeric = Math.floor(Math.random() * 10)
 
@@ -37,10 +47,7 @@ function generatePassword( ) {
     console.log(passLowerCase)
   } else {
     console.log('no lowercase characters')
-  }
-  if(passLength) {
-    console.log('the password will contain ${passLength} characters')
-  } else if( window.confirm('Click OK to include special characters?')) {
+  } if( window.confirm('Click OK to include special characters?')) {
     console.log(passSpecial)
   } else {
     console.log('no special characters')
@@ -52,8 +59,8 @@ function generatePassword( ) {
   }
  
 
- return
  
+  return true
 }
 
 
