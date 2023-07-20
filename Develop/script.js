@@ -8,22 +8,16 @@ var specCharacters = [".","\\", ":", ";", "!", "#", "$", "%", "&", "(", ")", "*"
 
 
  Math.floor(Math.random() * 10);
- window.confirm('Click OK to include uppercase characters?')
- window.confirm('Click OK to include lowercase characters?')
+ 
 
- window.confirm('Click OK to include special characters?')
- window.confirm('Click OK to include numeric characters?')
 
-function alphaChoice() {
-
-}
 
 function getRandomAlpha() {
-   Math.floor(Math.random() * alphabet.length);
+  return Math.floor(Math.random() * alphabet.length);
 }
 
 function getRandomSpec() {
-  Math.floor(Math.random() * specCharacters.length);
+  return Math.floor(Math.random() * specCharacters.length);
 }
 
 
@@ -32,8 +26,36 @@ function generatePassword( ) {
   var passLowerCase = alphabet[getRandomAlpha()]
   var passLength =  window.prompt('How many characters would you like your password to contain?')
   var passSpecial = specCharacters[getRandomSpec()]
-  var passNumeric = 
+  var passNumeric = Math.floor(Math.random() * 10)
+
+  if(window.confirm('Click OK to include uppercase characters?')) {
+    console.log(passUpperCase)
+  } else {
+    console.log('no uppercase characters')
+  }
+  if(window.confirm('Click OK to include lowercase characters?') ) {
+    console.log(passLowerCase)
+  } else {
+    console.log('no lowercase characters')
+  }
+  if(passLength) {
+    console.log('the password will contain ${passLength} characters')
+  } else if( window.confirm('Click OK to include special characters?')) {
+    console.log(passSpecial)
+  } else {
+    console.log('no special characters')
+  }
+    if(window.confirm('Click OK to include numeric characters?')) {
+    console.log(passNumeric)
+  } else {
+    console.log('no numeric characters')
+  }
+ 
+
+ return
+ 
 }
+
 
 
   
